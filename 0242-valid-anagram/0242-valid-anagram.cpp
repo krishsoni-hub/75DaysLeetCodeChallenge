@@ -1,17 +1,17 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        if(s.size() != t.size()) return false;
+        if (s.length() != t.length()) return false;
 
-        int count[26] = {0};
+        int freq[26] = {0};
 
-        for(int i = 0; i < s.size(); i++) {
-            count[s[i] - 'a']++;
-            count[t[i] - 'a']--;
+        for (int i = 0; i < s.length(); i++) {
+            freq[s[i] - 'a']++;
+            freq[t[i] - 'a']--;
         }
 
-        for(int i = 0; i < 26; i++) {
-            if(count[i] != 0) return false;
+        for (int x : freq) {
+            if (x != 0) return false;
         }
 
         return true;
